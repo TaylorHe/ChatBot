@@ -12,16 +12,18 @@ function say(message) {
   console.log("\n" + message + "\n");
 }
 
-await trainnlp(nlpManager, say);
+(async () => {
+	await trainnlp(nlpManager, say);
+})();
 
 router.get("/", async (req, res) => {
 	try {
-		const result = await nlpManager.process(req.body.message); // replace with static value for testing
+		const result = await nlpManager.process("hello"); // replace with static value for testing
 		const answer =
 	    	result.score > threshold && result.answer
 	    	? result.answer
 	    	: "Sorry, I don't understand";
-		res.json(JSON.parse(answer));
+		res.json({response: answer});
 	} catch (e) {
 		console.log(e);
 	}
