@@ -18,7 +18,7 @@ function say(message) {
 
 router.get("/", async (req, res) => {
 	try {
-		const result = await nlpManager.process("hello"); // replace with static value for testing
+		const result = await nlpManager.process(req.body.message); // replace with static value for testing
 		const answer =
 	    	result.score > threshold && result.answer
 	    	? result.answer
