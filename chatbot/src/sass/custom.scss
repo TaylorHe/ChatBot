@@ -1,3 +1,18 @@
-#paper{
-    color:red
-}   
+.rcw-widget-container{
+    margin:20px 100px 20px 100px !important;
+    position: unset !important;
+    max-width: 2000px !important;
+    text-align: center !important;
+}
+
+.rcw-opened{
+    width: inherit !important;
+}
+
+.rcw-conversation-container{
+    display: inline-block !important;     
+}
+
+.rcw-launcher{
+    display: none !important;
+}
