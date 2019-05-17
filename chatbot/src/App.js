@@ -3,10 +3,10 @@ import axios from 'axios';
 
 import { Widget, addResponseMessage, toggleWidget } from 'react-chat-widget';
 import 'react-chat-widget/lib/styles.css';
-import './App.css';
 import './css/styles.css'
 
 import { Grid,Paper } from '@material-ui/core';
+import About from './About'
 
 
 Number.prototype.isBetween = function (low, high) {
@@ -146,11 +146,7 @@ class App extends Component {
 
         <Grid container spacing={24}>
           <Grid item xs={6}>
-            <Paper>
-              <h1> Welcome to our chatbot </h1>
-              <p>This is a sentence. This is another sentence that is longer than the previous. This is a sentence. This is another sentence that is longer than the previous. This is a sentence. This is another sentence that is longer than the previous. This is a sentence. This is another sentence that is longer than the previous. </p>
-            </Paper>
-            
+            <About/>            
           </Grid>
           <Grid item xs={6}>
             <Widget
