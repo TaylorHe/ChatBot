@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Widget, addResponseMessage, toggleWidget } from 'react-chat-widget';
 import 'react-chat-widget/lib/styles.css';
 import './App.css';
+import './css/styles.css'
 
 import { Grid } from '@material-ui/core';
 
