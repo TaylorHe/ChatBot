@@ -80,6 +80,28 @@ class App extends Component {
     this.state = {
       sentiment_value:-1
     }
+    this.colorPalette = {
+      "light-red": {
+        backgroundColor: "#ff5d4f",
+        textColor: "#F6F6F6"
+      },
+      "light-orange": {
+        backgroundColor: "#ff9e4f",
+        textColor: "#222222"
+      },
+      "light-yellow": {
+        backgroundColor: "#ffd54f",
+        textColor: "#444444"
+      },
+      "lime-green": {
+        backgroundColor: "#d0ff4f",
+        textColor: "#666666"
+      },
+      "green": {
+        backgroundColor: "#64cc3f",
+        textColor: "#FFFFFF"
+      }
+    }
   }
 
   componentDidMount() {
@@ -111,26 +133,39 @@ class App extends Component {
       //change color based on sentiment_value
       let color = "";
       if (sentiment.isBetween(-1, -0.5)) {
-        color = "#ff5d4f";
+        color = "light-red";
       }
       else if (sentiment.isBetween(-0.5, 0)) {
-        color = "#ff9e4f";
+        color = "light-orange";
       }
       else if (sentiment === 0) {
-        color = "#ffd54f"
+        color = "light-yellow"
       }
       else if (sentiment.isBetween(0, 0.5)) {
-        color = "#d0ff4f";
+        color = "lime-green";
       }
       else if (sentiment.isBetween(0.5, 1)) {
-        color = "#7dff4f";
+        color = "green";
       }
-      document.getElementsByClassName('rcw-messages-container')[0].style.backgroundColor = color;
 
+      document.getElementsByClassName('rcw-header')[0].style.backgroundColor = this.colorPalette[color].backgroundColor;
+      document.getElementsByClassName('rcw-header')[0].style.color = this.colorPalette[color].textColor;
+      
       addResponseMessage(`${response}`)
     } catch (e) {
       console.error("Error in handleNewUserMessage:", e)
-      addResponseMessage(`Error, please try again`)
+
+      await addResponseMessage(`Failed to connect to the server. Make sure it's running and try again`)
+      
+      // Bold red
+      document.getElementsByClassName('rcw-header')[0].style.backgroundColor = "#FF0000";
+      document.getElementsByClassName('rcw-header')[0].style.color = "#FFFFFF";
+      document.getElementsByClassName('rcw-sender')[0].style.backgroundColor = "#FF0000";
+      document.getElementsByClassName('rcw-new-message')[0].style.backgroundColor = "#FF0000";
+      document.getElementsByClassName('rcw-send')[0].style.backgroundColor = "#FF0000";
+
+
+
     }
 
 
