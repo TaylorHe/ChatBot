@@ -34,7 +34,7 @@ router.get("/", async (req, res) => {
 			intent: result.intent,
 			sentiment: result.sentiment.score
 		});
-		console.log("succesfully json'ed the response" +result.sentiment.score);
+		// console.log("succesfully json'ed the response" +result.sentiment.score);
 	} catch (e) {
 		res.json({
 			response: "Server error occurred: try again"
