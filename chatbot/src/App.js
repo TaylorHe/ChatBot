@@ -91,7 +91,11 @@ class App extends Component {
           'Content-Type': 'application/json'
         },
       })
+
       const { response } = res.data;
+      this.setState({
+        sentiment_value:res.data.sentiment
+      });
       // console.log(res.data)
 
 
@@ -105,12 +109,12 @@ class App extends Component {
       if(sentiment >= -1 && sentiment < 0){
         // document.body
         // alert("SAD")
-        document.getElementsByClassName('rcw-messages-container')[0].style.backgroundColor = "#00FF00"
+        document.getElementsByClassName('rcw-messages-container')[0].style.backgroundColor = "#FF0000"
         // document.getElementById('rcw-messages-container').style.backgroundColor = "#00FF00"
 
       }
       else if(sentiment ==0){
-        document.getElementsByClassName('rcw-messages-container')[0].style.backgroundColor = "#00FF00"
+        document.getElementsByClassName('rcw-messages-container')[0].style.backgroundColor = "#FFFFFF"
 
       }
       else if(sentiment <= 1 && sentiment >0){
