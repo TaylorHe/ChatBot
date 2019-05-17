@@ -21,11 +21,11 @@ gulp.task('sass', () => {
             cascade: false
         }))
         .pipe(concat('styles.css'))
-        .pipe(gulp.dest("./public/css/"))
+        .pipe(gulp.dest("./src/css/"))
         .pipe(rename("styles.min.css"))
         .pipe(cleanCSS())
     .pipe(sourcemaps.write("./"))
-    .pipe(gulp.dest("./public/css/"));
+    .pipe(gulp.dest("./src/css/"));
 });
 
 gulp.task("sass:watch", () => {
