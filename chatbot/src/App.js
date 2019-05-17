@@ -10,12 +10,8 @@ import { Grid } from '@material-ui/core';
 class App extends Component {
   constructor(props, context) {
     super(props, context);
-    this.state = {
-      message: ''
-    }
     this.SERVER_URL = "http://localhost:8080/request";
     // TODO: make colors for some sentiment types (or sentiment groups)
-    
     this.SENTIMENT_TYPES = [
       { label: 'agent.bad', value: 1 },
       { label: 'agent.acquaintance', value: 0 },
@@ -92,19 +88,21 @@ class App extends Component {
         },
       })
       const { response } = res.data;
-      console.log(res.data)
+      // console.log(res.data)
       addResponseMessage(`${response}`)
     } catch (e) {
-      console.log(e)
+      console.error("Error in handleNewUserMessage:", e)
       addResponseMessage(`Error, please try again`)
     }
   }
 
 
   render() {
+    // Styling TODOS:
+    //  - Center and set % width for chat window
+    //  - On the sides, we can show emojis/colors
+    //  - Maybe make the text larger if that's not too hard 
     return (
-      <Grid container>
-      <Grid item>
         <Widget
           handleNewUserMessage={this.handleNewUserMessage}
           title="Chat with me!"
@@ -112,11 +110,6 @@ class App extends Component {
           fullScreenMode={true}
           showCloseButton={false}
         />
-      </Grid>
-      <Grid item>
-      Hello there
-      </Grid>
-      </Grid>
     );
   }
   
