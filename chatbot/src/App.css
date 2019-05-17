@@ -31,3 +31,20 @@
     transform: rotate(360deg);
   }
 }
+
+/*
+These are examples of how to change color 
+Look at .scss source code to find out more
+https://github.com/Wolox/react-chat-widget/tree/master/src/components
+*/
+
+/*
+.rcw-conversation-container > .rcw-header {
+  background-color: red;
+}
+
+.rcw-message > .rcw-response {
+  background-color: black;
+  color: white;
+}
+*/

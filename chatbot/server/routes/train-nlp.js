@@ -304,6 +304,7 @@ module.exports = async function trainnlp(manager, say) {
   manager.addDocument('en', 'i must go', 'greetings.bye');
   manager.addDocument('en', 'hello', 'greetings.hello');
   manager.addDocument('en', 'hi', 'greetings.hello');
+  manager.addDocument('en', 'hey', 'greetings.hello');
   manager.addDocument('en', 'howdy', 'greetings.hello');
   manager.addDocument('en', 'how is your day', 'greetings.howareyou');
   manager.addDocument('en', 'how is your day going', 'greetings.howareyou');
