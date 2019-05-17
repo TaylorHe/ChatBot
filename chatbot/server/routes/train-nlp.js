@@ -26,7 +26,6 @@ const fs = require('fs');
 module.exports = async function trainnlp(manager, say) {
   if (fs.existsSync('./model.nlp')) {
     manager.load('./model.nlp');
-    console.log('loaded model');
     return;
   }
   manager.addDocument('en', 'say about you', 'agent.acquaintance');
@@ -304,7 +303,6 @@ module.exports = async function trainnlp(manager, say) {
   manager.addDocument('en', 'i must go', 'greetings.bye');
   manager.addDocument('en', 'hello', 'greetings.hello');
   manager.addDocument('en', 'hi', 'greetings.hello');
-  manager.addDocument('en', 'hey', 'greetings.hello');
   manager.addDocument('en', 'howdy', 'greetings.hello');
   manager.addDocument('en', 'how is your day', 'greetings.howareyou');
   manager.addDocument('en', 'how is your day going', 'greetings.howareyou');
@@ -386,6 +384,38 @@ module.exports = async function trainnlp(manager, say) {
   manager.addDocument('en', 'I need some advice', 'user.needsadvice');
   manager.addDocument('en', 'can you give me some advice', 'user.needsadvice');
   manager.addDocument('en', 'what should I do', 'user.needsadvice');
+
+  manager.addDocument('en', 'I\'m sad', 'user.issad/sick');
+  manager.addDocument('en', 'I\'m having a bad day', 'user.issad/sick');
+  manager.addDocument('en', 'I\'m sick', 'user.issad/sick');
+  manager.addDocument('en', 'I don\'t feel well', 'user.issad/sick');
+  manager.addDocument('en', 'I have a cold', 'user.issad/sick');
+  manager.addDocument('en', 'I have the flu', 'user.issad/sick');
+
+  manager.addDocument('en', 'What\'s the weather?', 'agent.weather');
+  manager.addDocument('en', 'Is it raining?', 'agent.weather');
+  manager.addDocument('en', 'Is it sunny?', 'agent.weather');
+  manager.addDocument('en', 'Do you know the forecast?', 'agent.weather');
+
+  manager.addDocument('en', 'Ask me a question', 'agent.question');
+  manager.addDocument('en', 'Ask me a something', 'agent.question');
+  manager.addDocument('en', 'What do you want to know about me?', 'agent.question');
+  manager.addDocument('en', 'Do you have any questions?', 'agent.question');
+
+  manager.addDocument('en', 'Do you watch tv?', 'agent.tv');
+  manager.addDocument('en', 'What shows do you watch?', 'agent.tv');
+  manager.addDocument('en', 'Can you watch television?', 'agent.tv');
+
+  manager.addDocument('en', 'What do you think of Game of Thrones season 8?', 'agent.GOT');
+  manager.addDocument('en', 'So how is GOT season 8?', 'agent.GOT');
+  manager.addDocument('en', 'Game of Thrones season 8 is so bad', 'agent.GOT');
+  manager.addDocument('en', 'What about GOT season 8?', 'agent.GOT');
+  manager.addDocument('en', 'season 8', 'agent.GOT');
+
+  manager.addDocument('en', 'Do you know about any sports?', 'agent.sports');
+  manager.addDocument('en', 'Are there any sports teams you like?', 'agent.sports');
+  manager.addDocument('en', 'What about sports?', 'agent.sports');
+
   say('Training, please wait..');
   const hrstart = process.hrtime();
   await manager.train();
@@ -789,5 +819,29 @@ module.exports = async function trainnlp(manager, say) {
     'user.needsadvice',
     "I'm not sure I'll have the best answer, but I'll try"
   );
+
+  manager.addAnswer('en', 'user.issad/sick', 'Can I help you feel better?');
+  manager.addAnswer('en', 'user.issad/sick', 'I hope you feel better soon.');
+  manager.addAnswer('en', 'user.issad/sick', 'You just need some cheering up is all.');
+
+  manager.addAnswer('en', 'agent.weather', 'Sorry, I\'m not a weather bot.');
+  manager.addAnswer('en', 'agent.weather', 'What do you think I am, a weather app?');
+
+  manager.addAnswer('en', 'agent.question', 'Tell me about one of your hobbies.');
+  manager.addAnswer('en', 'agent.question', 'What type of pets do you like?');
+  manager.addAnswer('en', 'agent.question', 'What do you think of me?');
+  manager.addAnswer('en', 'agent.question', 'What do you do on the Internet?');
+  manager.addAnswer('en', 'agent.question', 'How has your day been?');
+  manager.addAnswer('en', 'agent.question', 'Do you have any plans for later?');
+
+  manager.addAnswer('en', 'agent.tv', 'I don\'t know much about tv shows.');
+  manager.addAnswer('en', 'agent.tv', 'I have heard some things about Game of Thrones Season 8.');
+
+  manager.addAnswer('en', 'agent.GOT', 'Season 8 is terrible!');
+  manager.addAnswer('en', 'agent.GOT', 'I would prefer not to talk about it, maybe another time.');
+
+  manager.addAnswer('en', 'agent.sports', 'As a bot, I don\'t get much time to watch sports.');
+  manager.addAnswer('en', 'agent.sports', 'Unfortunately I am unable to enjoy them much due to not having a body.');
+
   manager.save('./model.nlp');
 };
