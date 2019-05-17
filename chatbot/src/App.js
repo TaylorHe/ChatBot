@@ -109,16 +109,24 @@ class App extends Component {
       if(sentiment >= -1 && sentiment < 0){
         // document.body
         // alert("SAD")
-        document.getElementsByClassName('rcw-messages-container')[0].style.backgroundColor = "#FF0000"
+        document.getElementsByClassName('rcw-messages-container')[0].style.backgroundColor = "#ff5d4f"
         // document.getElementById('rcw-messages-container').style.backgroundColor = "#00FF00"
 
       }
+      else if(sentiment >= -0.5 && sentiment <0){
+        document.getElementsByClassName('rcw-messages-container')[0].style.backgroundColor = "#ff9e4f"
+
+      }
       else if(sentiment ==0){
-        document.getElementsByClassName('rcw-messages-container')[0].style.backgroundColor = "#FFFFFF"
+        document.getElementsByClassName('rcw-messages-container')[0].style.backgroundColor = "#ffd54f"
+
+      }
+      else if(sentiment <= 0.5 && sentiment >0){
+        document.getElementsByClassName('rcw-messages-container')[0].style.backgroundColor = "#d0ff4f"
 
       }
       else if(sentiment <= 1 && sentiment >0){
-        document.getElementsByClassName('rcw-messages-container')[0].style.backgroundColor = "#00FF00"
+        document.getElementsByClassName('rcw-messages-container')[0].style.backgroundColor = "#7dff4f"
 
       }
 
