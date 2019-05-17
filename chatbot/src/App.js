@@ -12,6 +12,7 @@ class App extends Component {
     super(props, context);
     this.SERVER_URL = "http://localhost:8080/request";
     // TODO: make colors for some sentiment types (or sentiment groups)
+
     this.SENTIMENT_TYPES = [
       { label: 'agent.bad', value: 1 },
       { label: 'agent.acquaintance', value: 0 },
@@ -70,7 +71,10 @@ class App extends Component {
       { label: 'user.testing', value: 0 },
       { label: 'user.lovesagent', value: 0 },
       { label: 'user.needsadvice', value: 0 }
-    ]
+    ];
+    this.state = {
+      sentiment_value:-1
+    }
   }
 
   componentDidMount() {
@@ -89,11 +93,40 @@ class App extends Component {
       })
       const { response } = res.data;
       // console.log(res.data)
+
+
+      // sentiment_value (range): -1 to 1
+      // -1: sad
+      //  0: neutral
+      //  1: happy
+      //change color based on sentiment_value
+      const sentiment = this.state.sentiment_value
+
+      if(sentiment >= -1 && sentiment < 0){
+        // document.body
+        // alert("SAD")
+        document.getElementsByClassName('rcw-messages-container')[0].style.backgroundColor = "#00FF00"
+        // document.getElementById('rcw-messages-container').style.backgroundColor = "#00FF00"
+
+      }
+      else if(sentiment ==0){
+        document.getElementsByClassName('rcw-messages-container')[0].style.backgroundColor = "#00FF00"
+
+      }
+      else if(sentiment <= 1 && sentiment >0){
+        document.getElementsByClassName('rcw-messages-container')[0].style.backgroundColor = "#00FF00"
+
+      }
+
+
+
       addResponseMessage(`${response}`)
     } catch (e) {
       console.error("Error in handleNewUserMessage:", e)
       addResponseMessage(`Error, please try again`)
     }
+
+
   }
 
 
