@@ -7,6 +7,10 @@ import './App.css';
 
 import { Grid } from '@material-ui/core';
 
+
+Number.prototype.isBetween = function (low, high) {
+  return this >= low && this < high
+}
 class App extends Component {
   constructor(props, context) {
     super(props, context);
@@ -92,9 +96,9 @@ class App extends Component {
         },
       })
 
-      const { response } = res.data;
+      const { response, sentiment } = res.data;
       this.setState({
-        sentiment_value:res.data.sentiment
+        sentiment_value: sentiment
       });
       // console.log(res.data)
 
@@ -104,33 +108,23 @@ class App extends Component {
       //  0: neutral
       //  1: happy
       //change color based on sentiment_value
-      const sentiment = this.state.sentiment_value
-
-      if(sentiment >= -1 && sentiment < 0){
-        // document.body
-        // alert("SAD")
-        document.getElementsByClassName('rcw-messages-container')[0].style.backgroundColor = "#ff5d4f"
-        // document.getElementById('rcw-messages-container').style.backgroundColor = "#00FF00"
-
+      let color = "";
+      if (sentiment.isBetween(-1, -0.5)) {
+        color = "#ff5d4f";
       }
-      else if(sentiment >= -0.5 && sentiment <0){
-        document.getElementsByClassName('rcw-messages-container')[0].style.backgroundColor = "#ff9e4f"
-
+      else if (sentiment.isBetween(-0.5, 0)) {
+        color = "#ff9e4f";
       }
-      else if(sentiment ==0){
-        document.getElementsByClassName('rcw-messages-container')[0].style.backgroundColor = "#ffd54f"
-
+      else if (sentiment === 0) {
+        color = "#ffd54f"
       }
-      else if(sentiment <= 0.5 && sentiment >0){
-        document.getElementsByClassName('rcw-messages-container')[0].style.backgroundColor = "#d0ff4f"
-
+      else if (sentiment.isBetween(0, 0.5)) {
+        color = "#d0ff4f";
       }
-      else if(sentiment <= 1 && sentiment >0){
-        document.getElementsByClassName('rcw-messages-container')[0].style.backgroundColor = "#7dff4f"
-
+      else if (sentiment.isBetween(0.5, 1)) {
+        color = "#7dff4f";
       }
-
-
+      document.getElementsByClassName('rcw-messages-container')[0].style.backgroundColor = color;
 
       addResponseMessage(`${response}`)
     } catch (e) {
@@ -152,7 +146,7 @@ class App extends Component {
           handleNewUserMessage={this.handleNewUserMessage}
           title="Chat with me!"
           subtitle="I can respond to most conversational input."
-          fullScreenMode={true}
+          fullScreenMode={false}
           showCloseButton={false}
         />
     );
