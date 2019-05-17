@@ -1,8 +1,9 @@
 .rcw-widget-container{
-    margin:20px 100px 20px 100px !important;
+    margin:5% 5% 5% 5% !important;
     position: unset !important;
-    max-width: 2000px !important;
+    max-width: 100% !important;
     text-align: center !important;
+    height: 100% !important
 }
 
 .rcw-opened{
@@ -15,4 +16,11 @@
 
 .rcw-launcher{
     display: none !important;
+}
+
+
+.MuiPaper-root-98.MuiPaper-elevation2-102.MuiPaper-rounded-99 {
+    margin: 5%;
+    text-align: center;
+    height: 100%;
 }

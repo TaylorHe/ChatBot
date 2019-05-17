@@ -6,7 +6,7 @@ import 'react-chat-widget/lib/styles.css';
 import './App.css';
 import './css/styles.css'
 
-import { Grid } from '@material-ui/core';
+import { Grid,Paper } from '@material-ui/core';
 
 
 Number.prototype.isBetween = function (low, high) {
@@ -143,13 +143,30 @@ class App extends Component {
     //  - On the sides, we can show emojis/colors
     //  - Maybe make the text larger if that's not too hard 
     return (
-        <Widget
-          handleNewUserMessage={this.handleNewUserMessage}
-          title="Chat with me!"
-          subtitle="I can respond to most conversational input."
-          fullScreenMode={false}
-          showCloseButton={false}
-        />
+
+        <Grid container spacing={24}>
+          <Grid item xs={6}>
+            <Paper>
+              <h1> Welcome to our chatbot </h1>
+              <p>This is a sentence. This is another sentence that is longer than the previous. This is a sentence. This is another sentence that is longer than the previous. This is a sentence. This is another sentence that is longer than the previous. This is a sentence. This is another sentence that is longer than the previous. </p>
+            </Paper>
+            
+          </Grid>
+          <Grid item xs={6}>
+            <Widget
+            handleNewUserMessage={this.handleNewUserMessage}
+            title="Chat with me!"
+            subtitle="I can respond to most conversational input."
+            fullScreenMode={false}
+            showCloseButton={false}
+          />
+          </Grid>
+
+
+
+        </Grid>
+
+
     );
   }
   
