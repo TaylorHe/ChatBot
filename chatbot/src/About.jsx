@@ -18,8 +18,7 @@ export default class About extends Component {
             <Paper className={"aboutCSS"}>
                 <Grid container spacing={8}>
                     <Grid item xs={12}>
-
-                        <Card>
+                        <Card style={{maxWidth: '90%', marginLeft: 'auto', marginRight: 'auto'}}>
                             <CardHeader
                                 title= {"Welcome to ChatBot"}
                             />
@@ -27,29 +26,25 @@ export default class About extends Component {
                     </Grid>
               {/* <p>This is a sentence. This is another sentence that is longer than the previous. This is a sentence. This is another sentence that is longer than the previous. This is a sentence. This is another sentence that is longer than the previous. This is a sentence. This is another sentence that is longer than the previous. </p> */}
                     <Grid item xs={12}>
-
-                        <Card>
-                            <CardContent>
-                                <Typography variant="h6" component="h3">
-                                    Sentiment Analysis
-                                </Typography>
-
+                        <Card style={{maxWidth: '80%', marginLeft: 'auto', marginRight: 'auto'}}>
+                            <CardHeader title="Sentiment Analysis"/>
+                            <CardContent style={{marginTop: -40}}>
                                 <p>This ChatBot measures sentiment in the messages it receives. Based off the sentiment (negative to positive), the background color will vary accordingly.</p>
                                 <table style={{width:'100%'}}>
-                                    <tr style={{backgroundColor:'#ff5d4f'}}>
-                                        Very Negative
+                                    <tr style={{verticalAlign: 'middle', height: '2em', backgroundColor:'#ff5d4f'}}>
+                                        <td>Very Negative</td>
                                     </tr>
-                                    <tr style={{backgroundColor:'#ff9e4f'}}>
-                                        Slightly Negative
+                                    <tr style={{verticalAlign: 'middle', height: '2em', backgroundColor:'#ff9e4f'}}>
+                                        <td>Slightly Negative</td>
                                     </tr>
-                                    <tr style={{backgroundColor:'#ffd54f'}}>
-                                        Neutral
+                                    <tr style={{verticalAlign: 'middle', height: '2em', backgroundColor:'#ffd54f'}}>
+                                        <td>Neutral</td>
                                     </tr>
-                                    <tr style={{backgroundColor:'#d0ff4f'}}>
-                                        Slightly Positive
+                                    <tr style={{verticalAlign: 'middle', height: '2em', backgroundColor:'#d0ff4f'}}>
+                                        <td>Slightly Positive</td>
                                     </tr>
-                                    <tr style={{backgroundColor:'#7dff4f'}}>
-                                        Very Positive
+                                    <tr style={{verticalAlign: 'middle', height: '2em', backgroundColor:'#7dff4f'}}>
+                                        <td>Very Positive</td>
                                     </tr>
                                 </table>
                             </CardContent>
@@ -57,12 +52,9 @@ export default class About extends Component {
                     </Grid>
                 
                     <Grid item xs={12}>
-                        <Card>
-                            <CardContent>
-                                <Typography variant="h6" component="h3">
-                                    Technologies Used
-                                </Typography>
-
+                        <Card style={{maxWidth: '80%', marginLeft: 'auto', marginRight: 'auto'}}>
+                            <CardHeader title='Technologies Used' />
+                            <CardContent style={{marginTop: -20}}>
                             <Grid container spacing={8}>
                                 <Grid item xs={6}>
                                     Gulp.js
@@ -74,7 +66,6 @@ export default class About extends Component {
                                 <Grid item xs={6}>
                                     Sass
                                 </Grid>
-                                
                                 <Grid item xs={6}>
                                     NLP.js
                                 </Grid>

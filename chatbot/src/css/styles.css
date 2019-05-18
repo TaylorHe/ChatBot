@@ -46,14 +46,16 @@
     transform: rotate(360deg); } }
 
 .rcw-messages-container {
-  background-color: white; }
+  background-color: white;
+  max-height: 100%;
+}
 
 .rcw-widget-container {
   margin: 5% 5% 5% 5% !important;
   position: unset !important;
   max-width: 100% !important;
   text-align: center !important;
-  height: 100% !important; }
+  max-height: 100% !important; }
 
 .rcw-opened {
   width: inherit !important; }
@@ -69,7 +71,7 @@
   margin-bottom: -60px; }
 
 .aboutCSS {
-  padding-top: 1%;
+  padding-top: 5%;
   margin: 5%;
   text-align: center;
   height: 100%; }
