@@ -24,7 +24,7 @@
     "redis": "^2.8.0"
   },
   "scripts": {
-    "start": "concurrently \"node server/app.js\" \"react-scripts start\"",
+    "start": "gulp sass && concurrently \"node server/app.js\" \"react-scripts start\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
