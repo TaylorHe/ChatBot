@@ -64,13 +64,13 @@ export default class About extends Component {
                                 </Grid>
 
                                 <Grid item xs={6}>
-                                    Sass
+                                    SASS
                                 </Grid>
                                 <Grid item xs={6}>
                                     NLP.js
                                 </Grid>
                                 <Grid item xs={6}>
-                                    Redux
+                                    Redis
                                 </Grid>
                                 <Grid item xs={6}>
                                     React.js
